@@ -1,0 +1,6 @@
+first run:
+./part1 part1testsequence part1-out-test
+
+run part 1:
+cc -Wall -g part1.c -o part1.o
+

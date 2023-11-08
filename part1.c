@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdint.h> // for using uint64_t, which ensures an unsigned long is 8 bytes
 
+#define PAGE_SIZE 8
+
 int main(int argc, char *argv[]) {
     // Check for proper usage and arguments
     if (argc != 3) {
@@ -11,9 +13,10 @@ int main(int argc, char *argv[]) {
     }
 
     // Page table as given in the instructions
-    int PT[8] = {2, 4, 1, 7, 3, 5, 6, -1}; // -1 will indicate an invalid mapping
+    int PT[PAGE_SIZE] = {2, 4, 1, 7, 3, 5, 6, -1}; // -1 will indicate an invalid mapping
     uint64_t LA, PA;
-    int pnum, fnum;
+    int pnum;
+    int fnum;
     const int d = 7;
     const uint64_t mask = 0x7F; // Mask for the last 7 bits
 
@@ -62,6 +65,8 @@ int main(int argc, char *argv[]) {
         printf("Logical address: %lu\n", LA);
     }
     
+    printf("total number of pages = %d\n", PAGE_SIZE);
+
     // Close both the input and output files
     fclose(infile);
     fclose(outfile);
