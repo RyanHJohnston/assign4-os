@@ -1,1 +1,16 @@
-ceabc02825a5b908e474b053074ab53c  docs/part1-output
+1. I did not collaborate with anybody on this assignment, I did this entirely on my own.
+
+2. Honestly, I have no idea if everything I did was correct. This assignment has been the most
+difficult so far and I am extremely unsure of its correctness.
+
+3. Everything is working as needed, there are no glaring bugs. Any glaring bugs are caught by the
+programs. I'm just not sure if the output is correct.
+
+4. This was the most difficult assignment by far; because conceptually, it was very difficult to
+design and implement. I spent most of my time trying to implement rather than debugging. It was
+pretty difficult.
+
+5. Below is the output of running 'make all' in the directory. Every time the makefile is executed,
+this file will be appended by the output of executing the C object files.
+
+

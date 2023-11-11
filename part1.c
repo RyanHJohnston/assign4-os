@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         fclose(infile); // Close the infile before returning
         return -1;
     }
-
+    
     // Read each logical address and process it
     while (fread(&LA, sizeof(uint64_t), 1, infile) == 1) {
         // Extract the page number and offset
@@ -73,3 +73,5 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+
