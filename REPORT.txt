@@ -14,3 +14,6 @@ pretty difficult.
 this file will be appended by the output of executing the C object files.
 
 
+ceabc02825a5b908e474b053074ab53c  docs/part1-output
+Part 2 Page Faults: 36
+204a15868e8135619e7110377e5e03b7  docs/part2-output

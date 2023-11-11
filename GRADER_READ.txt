@@ -1,6 +1,9 @@
-first run:
-./part1 part1testsequence part1-out-test
+To run everything, just type:
 
-run part 1:
-cc -Wall -g part1.c -o part1.o
+make all
 
+To remove all object files, type:
+
+make clean
+
+See REPORT.txt for all details.
