@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
     int free_frames[FRAME_COUNT] = {0, 1, 1, 1, 1, 1, 1, 1};
     int rev_map[FRAME_COUNT] = {-1};
     int lru_count[FRAME_COUNT] = {0};
+    int i;
 
     // Open the input and output files
     FILE *infile = fopen(argv[1], "rb");
@@ -66,6 +67,7 @@ void processLogicalAddress(FILE *infile, FILE *outfile, PTE *page_table, int *fr
     while(fread(&LA, sizeof(uint64_t), 1, infile) == 1) {
         int pnum = LA >> d; // Extract page number
         uint64_t dnum = LA & mask; // Extract offset
+        int i;
 
         if (pnum >= PAGE_TABLE_SIZE) {
             fprintf(stderr, "Error: Page number out of bounds\n");
@@ -77,7 +79,7 @@ void processLogicalAddress(FILE *infile, FILE *outfile, PTE *page_table, int *fr
             
             ++page_fault_count;
             int frame_found = -1;
-            for (int i = 1; i < FRAME_COUNT; i++) { // Starting from 1 as 0 is for OS
+            for (i = 1; i < FRAME_COUNT; i++) { // Starting from 1 as 0 is for OS
                 if (free_frames[i]) {
                     frame_found = i;
                     free_frames[i] = 0; // Mark frame as used
@@ -88,7 +90,7 @@ void processLogicalAddress(FILE *infile, FILE *outfile, PTE *page_table, int *fr
             if (frame_found == -1) {
                 // No free frame found, apply LRU policy
                 int lru_frame = -1, lru_time = INT_MAX;
-                for (int i = 1; i < FRAME_COUNT; i++) {
+                for (i = 1; i < FRAME_COUNT; i++) {
                     if (lru_count[i] < lru_time) {
                         lru_time = lru_count[i];
                         lru_frame = i;
